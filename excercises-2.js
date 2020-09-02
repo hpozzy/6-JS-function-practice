@@ -55,23 +55,36 @@ console.log(isVowel("2"))
 // For example, translate("this is fun") should return
 // the string "tothohisos isos fofunon".
 // ---------------------
-function rovarspraket() {}
+function rovarspraket(a) {
+  let vowels = ["a", "e", "i", "o", "u", " "]
+  let newWord = ""
+  const newText = a.toString()
+  for (i = 0; i < newText.length; i++) {
+    let currentLetter = newText.charAt(i)
+    if (vowels.indexOf(currentLetter) != -1) {
+      newWord = newWord + currentLetter
+    } else {
+      newWord = newWord + (currentLetter + "o" + currentLetter)
+    }
+  }
+  return newWord
+}
 
-console.assert(rovarspraket("a") === "a")
-console.assert(rovarspraket("b") === "bob")
-console.assert(rovarspraket("cat") === "cocatot")
-console.assert(rovarspraket("javascript") === "jojavovasoscocroripoptot")
-console.assert(rovarspraket(0) === "0")
+console.log(rovarspraket("a"))
+console.log(rovarspraket("b"))
+console.log(rovarspraket("cat"))
+console.log(rovarspraket("javascript"))
+console.log(rovarspraket(0))
 
 // ---------------------
 // Define a function reverse() that computes the reversal
 // of a string. For example, reverse("jag testar") should
 // return the string "ratset gaj".
 // ---------------------
-function reverse(a) {
+function reverse(text) {
   let reversed = ""
-  for (let i = a.length - 1; i >= 0; i--) {
-    reversed += a[i]
+  for (let i = text.length - 1; i >= 0; i--) {
+    reversed += text.charAt(i)
   }
   return reversed
 }
